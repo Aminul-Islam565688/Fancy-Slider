@@ -39,12 +39,15 @@ let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
   element.classList.toggle('added');
-
   let item = sliders.indexOf(img);
   if (item === -1) {
-    let a = sliders.push(img);
-  } else {
-    let b = sliders.pop(img);
+    sliders.push(img);
+  }
+  else{
+    let index = sliders.indexOf(img);
+    if(index > -1){
+      sliders.splice(index,1);
+    }
   }
 }
 var timer
